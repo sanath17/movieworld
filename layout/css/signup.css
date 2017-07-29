@@ -1,0 +1,54 @@
+body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: url('http://www.bearcastmedia.com/wp-content/uploads/2016/09/movies.jpg');
+    background-repeat: no-repeat;
+    background-position: initial;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.form-signup-heading{
+
+    position: inherit;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 50%;
+    margin-left: 300px;
+    margin-top: 10px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+
+}
+
+body{
+    padding-top:0px;
+    margin-top: 200px;
+    margin-left: 500px;
+}
+.input-group {
+    position: inherit;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 50%;
+    margin-left: 300px;
+    margin-top: 10px;
+}
+.btn-primary
+{
+    position: inherit;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: table-cell;
+    width: 50%;
+    margin-left: 300px;
+    margin-top: 10px;
+}

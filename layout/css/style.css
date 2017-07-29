@@ -1,0 +1,88 @@
+body {
+    background: url('http://www.bearcastmedia.com/wp-content/uploads/2016/09/movies.jpg');
+    background-repeat: no-repeat;
+    background-position: initial;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+.jumbotron-fluid {
+    margin-top: 110px;
+    padding-left: 520px;
+}
+.display-3 {
+    font-size: 4.5rem;
+    font-weight: 600;
+    line-height: 1.1;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: 1.0rem;
+    margin: 0.125rem;
+    font-size: 1.2rem;
+    color: transparent;
+    text-align: center;
+    list-style: none;
+    background-color:#0e1124;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px groove rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+}
+a:focus, a:hover {
+    color: #0d0d0d;
+    text-decoration: underline;
+}
+
+.bg-faded {
+    background-color: transparent;
+}
+.custom_nav .navbar.navbar-fixed-top .navbar-inner{
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-default {
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: transparent;
+    background-color: #10324f;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    line-height: inherit;
+    white-space: nowrap;
+}
