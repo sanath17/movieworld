@@ -28,23 +28,20 @@ public class UserReviewController {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, path= "{User_Review}", produces=MediaType.APPLICATION_JSON_UTF8_VALUE )
-	public UserReview findUserReviews(@PathVariable("User_Review") UserReview comments) {
-		return service.findUserReviews(comments);
+	public UserReview findOne(@PathVariable("User_Review")  UserReview id, UserReview comments) {
+		return service.findOne(id,comments);
 	}
 	
-	@RequestMapping(method=RequestMethod.GET, path= "{User_Ratings}", produces=MediaType.APPLICATION_JSON_UTF8_VALUE )
-	public UserReview findUserRatings(@PathVariable("User_Ratings") int user_ratings) {
-		return service.findUserRatings(user_ratings);
-	}
+
 	
 	@RequestMapping(method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public UserReview create(@RequestBody UserReview comments) {
 		return service.create(comments);	
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, path= "{User_Review}", produces=MediaType.APPLICATION_JSON_UTF8_VALUE, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE )
-	public UserReview update(@PathVariable("User_Review") UserReview comments) {
-		return service.update(comments);
+	@RequestMapping(method=RequestMethod.PUT, path= "{Id}", produces=MediaType.APPLICATION_JSON_UTF8_VALUE, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE )
+	public UserReview update(@PathVariable("User_Review") UserReview id, @RequestBody UserReview comments) {
+		return service.update(id, comments);
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, path= "{User_Review}" )

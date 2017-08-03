@@ -12,7 +12,12 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table
-@NamedQueries({@NamedQuery(name = "", query = "")})
+@NamedQueries({@NamedQuery(name = "Movie.findAll", query = "SELECT e FROM Movie e ORDER BY e.title ASC"),
+	@NamedQuery(name = "Movie.findByYear", query = "SELECT e FROM Movie e ORDER BY e.year ASC"),
+	@NamedQuery(name = "Movie.findByGenre", query = "SELECT e FROM Movie e ORDER BY e.genre ASC"),
+	@NamedQuery(name = "Movie.findByRatings", query = "SELECT e FROM Movie e ORDER BY e.imdb_ratings ASC"),
+	//@NamedQuery(name = "Movie.findByimdb_votings", query = "SELECT e FROM Movie e ORDER BY e.imdb_votes ASC"),
+	@NamedQuery(name = "Movie.findByTitle", query = "SELECT e FROM Movie e WHERE e.title=:pTitle")})
 public class Movie {
 	
 	@Id

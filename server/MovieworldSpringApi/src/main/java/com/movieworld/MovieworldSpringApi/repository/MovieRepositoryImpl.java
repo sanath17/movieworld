@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
@@ -17,37 +18,43 @@ public class MovieRepositoryImpl implements MovieRepository {
 
 	@Override
 	public List<Movie> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		TypedQuery<Movie> query = em.createNamedQuery("Movie.findAll", Movie.class);
+		return query.getResultList();
 	}
 
 	@Override
 	public Movie findByTitle(Movie title) {
-		// TODO Auto-generated method stub
-		return null;
+		TypedQuery<Movie> query = em.createNamedQuery("Movie.findByTitle", Movie.class);
+		query.setParameter("pTitle", title);
+		//List<Movie> movies = query.getResultList();
+		return query.getSingleResult();
+//		if (movies != null && movies.size() == 1) {
+//			return movies.get(0);
+//		}
+//		return null;
 	}
 
 	@Override
 	public Movie findByGenere(String genere) {
-		// TODO Auto-generated method stub
-		return null;
+		TypedQuery<Movie> query = em.createNamedQuery("Movie.findByGenere", Movie.class);
+		return (Movie) query.getResultList(); 
 	}
 
 	@Override
 	public Movie findByRatings(int imdb_ratings) {
-		// TODO Auto-generated method stub
-		return null;
+		TypedQuery<Movie> query = em.createNamedQuery("Movie.findByRatings", Movie.class);
+		return (Movie) query.getResultList(); 
 	}
 
 	@Override
 	public Movie findByType(String type) {
-		// TODO Auto-generated method stub
-		return null;
+		TypedQuery<Movie> query = em.createNamedQuery("Movie.findByType", Movie.class);
+		return (Movie) query.getResultList(); 
 	}
 
 	@Override
 	public Movie create(Movie title) {
-		em.persist(title);;
+		em.persist(title);
 		return title;
 	}
 

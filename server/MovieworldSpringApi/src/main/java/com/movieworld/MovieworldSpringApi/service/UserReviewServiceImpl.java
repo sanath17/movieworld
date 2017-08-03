@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.movieworld.MovieworldSpringApi.entity.UserReview;
+import com.movieworld.MovieworldSpringApi.exception.ReviewNotFoundException;
 import com.movieworld.MovieworldSpringApi.repository.UserReviewRepository;
 
 @Service
@@ -13,41 +15,44 @@ public class UserReviewServiceImpl implements UserReviewService {
 
 	@Autowired
 	UserReviewRepository repository;
-	
+
 	@Override
 	public List<UserReview> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findAll();
 	}
 
 	@Override
-	public UserReview findUserReviews(UserReview comments) {
-		// TODO Auto-generated method stub
-		return null;
+	public UserReview findOne(UserReview id, UserReview comments) {
+		UserReview existing = repository.findOne(id);
+		if (existing == null) {
+			throw new ReviewNotFoundException("Review with id:" + id + " not found");
+		}
+		return existing;
 	}
 
 	@Override
-	public UserReview findUserRatings(int user_ratings) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
+	@Transactional
 	public UserReview create(UserReview comments) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.create(comments);
 	}
 
 	@Override
-	public UserReview update(UserReview comments) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional
+	public UserReview update(UserReview id, UserReview comments) {
+		UserReview existing = repository.findOne(id);
+	if (existing == null) {
+		throw new ReviewNotFoundException("Review with id:" + id + " not found");
+		}
+		return repository.update(comments);
 	}
 
 	@Override
-	public void delete(UserReview comments) {
-		// TODO Auto-generated method stub
-		
+	@Transactional
+	public void delete(UserReview id) {
+		UserReview existing = repository.findOne(id);
+		if (existing == null) {
+			throw new ReviewNotFoundException("Review with id:" + id + " not found");
+		}
+		repository.delete(existing);
 	}
-
 }

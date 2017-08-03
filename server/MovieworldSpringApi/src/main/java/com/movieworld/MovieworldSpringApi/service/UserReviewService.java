@@ -8,14 +8,14 @@ public interface UserReviewService {
 	
 	public List<UserReview> findAll();
 	
-	public UserReview findUserReviews(UserReview comments);
-	
-	public UserReview findUserRatings(int user_ratings);
+	public UserReview findOne( UserReview id, UserReview comments);
 	
 	public UserReview create(UserReview comments);
 	
-	public UserReview update(UserReview comments);
+	public UserReview update(UserReview id, UserReview comments);
 	
 	public void delete(UserReview comments);
+
+	
 
 }
