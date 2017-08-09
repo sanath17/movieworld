@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -14,13 +15,15 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 @Table
-@NamedQueries({})
+@NamedQueries({ 
+	@NamedQuery(name = "UserReview.findAll", query = "SELECT e FROM UserReview e") 
+})
 public class UserReview {
 
 	@Id
 	@GenericGenerator(name = "customUUID", strategy = "uuid2")
 	@GeneratedValue(generator = "customUUID")
-	private String id;
+	private String Rid;
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE)
@@ -34,11 +37,11 @@ public class UserReview {
 	private int user_ratings;
 
 	public String getId() {
-		return id;
+		return Rid;
 	}
 
 	public void setId(String id) {
-		this.id = id;
+		this.Rid = id;
 	}
 
 	public User getUser() {

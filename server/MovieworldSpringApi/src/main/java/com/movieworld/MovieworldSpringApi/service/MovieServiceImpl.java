@@ -25,12 +25,12 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public Movie findByTitle(Movie title) {
+	public Movie findByTitle(String title) {
 		Movie existing = repository.findByTitle(title);
 		if (existing == null) {
 			throw new MovieNotFoundException("Movie with " + title + "notfound");
 		}
-		return repository.findByTitle(title);
+		return existing;
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class MovieServiceImpl implements MovieService {
 		if (existing == null) {
 			throw new MovieNotFoundException("Movie with " + genere + "notfound");
 		}
-		return repository.findByGenere(genere);
+		return existing;
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class MovieServiceImpl implements MovieService {
 		if (existing == null) {
 			throw new MovieNotFoundException("Movie with " + imdb_ratings + "notfound");
 		}
-		return repository.findByRatings(imdb_ratings);
+		return existing;
 	}
 
 	@Override
@@ -57,23 +57,23 @@ public class MovieServiceImpl implements MovieService {
 		if (existing == null) {
 			throw new MovieNotFoundException("Movie with " + type + "notfound");
 		}
-		return repository.findByType(type);
+		return existing;
 	}
 
 	@Override
 	@Transactional
-	public Movie create(Movie title) {
-		Movie existing = repository.findByTitle(title);
-		if (existing == null) {
-			throw new MovieNotFoundException("Movie with " + title + "already exists");
+	public Movie create(Movie movie) {
+		Movie existing = repository.findByTitle(movie.getTitle());
+		if (existing != null) {
+			throw new MovieNotFoundException("Movie with " + movie.getTitle() + "already exists");
 		}
-		return repository.create(title);
+		return repository.create(movie);
 	}
 
 	@Override
 	@Transactional
 	public Movie update(Movie title) {
-		Movie existing = repository.findByTitle(title);
+		Movie existing = repository.findByTitle(title.getTitle());
 		if (existing == null) {
 			throw new MovieNotFoundException("Movie with " + title + "notfound");
 		}
@@ -82,12 +82,12 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	@Transactional
-	public void delete(Movie title) {
+	public void delete(String title) {
 		Movie existing = repository.findByTitle(title);
 		if (existing == null) {
 			throw new MovieNotFoundException("Movie with " + title + "notfound");
 		}
-		repository.delete(title);
+		repository.delete(existing);
 	}
 
 }

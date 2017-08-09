@@ -8,7 +8,7 @@ public interface MovieService {
 	
 	public  List<Movie> findAll();
 	
-	public  Movie findByTitle(Movie title);
+	public  Movie findByTitle(String title);
 	
 	public Movie findByGenere(String genere);
 	
@@ -20,7 +20,7 @@ public interface MovieService {
 	
 	public Movie update(Movie title); 
 	
-	public void delete(Movie title);
+	public void delete(String title);
 
 	
 }

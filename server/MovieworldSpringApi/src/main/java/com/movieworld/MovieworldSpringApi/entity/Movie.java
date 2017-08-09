@@ -12,57 +12,55 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table
-@NamedQueries({@NamedQuery(name = "Movie.findAll", query = "SELECT e FROM Movie e ORDER BY e.title ASC"),
-	@NamedQuery(name = "Movie.findByYear", query = "SELECT e FROM Movie e ORDER BY e.year ASC"),
-	@NamedQuery(name = "Movie.findByGenre", query = "SELECT e FROM Movie e ORDER BY e.genre ASC"),
-	@NamedQuery(name = "Movie.findByRatings", query = "SELECT e FROM Movie e ORDER BY e.imdb_ratings ASC"),
-	//@NamedQuery(name = "Movie.findByimdb_votings", query = "SELECT e FROM Movie e ORDER BY e.imdb_votes ASC"),
-	@NamedQuery(name = "Movie.findByTitle", query = "SELECT e FROM Movie e WHERE e.title=:pTitle")})
+@NamedQueries({ @NamedQuery(name = "Movie.findAll", query = "SELECT e FROM Movie e ORDER BY e.title ASC"),
+		@NamedQuery(name = "Movie.findByYear", query = "SELECT e FROM Movie e ORDER BY e.year ASC"),
+		@NamedQuery(name = "Movie.findByGenere", query = "SELECT e FROM Movie e ORDER BY e.genere ASC"),
+		@NamedQuery(name = "Movie.findByRatings", query = "SELECT e FROM Movie e ORDER BY e.imdb_ratings ASC"),
+		@NamedQuery(name = "Movie.findByTitle", query = "SELECT e FROM Movie e WHERE e.title=:pTitle") })
 public class Movie {
-	
+
 	@Id
 	@GenericGenerator(name = "customUUID", strategy = "uuid2")
 	@GeneratedValue(generator = "customUUID")
 	private String id;
-	
-	@Column(unique= true)
+
+	@Column(unique = true)
 	private String title;
-	
-	private String year;
-	
+
+	private int year;
+
 	private String rated;
-	
+
 	private String released;
-	
+
 	private String genere;
-	
+
 	private String director;
-	
+
 	private String writer;
-	
+
 	private String actors;
-	
+
 	private String plot;
-	
+
 	private String language;
-	
+
 	private String country;
-	
+
 	private String awards;
-	
+
 	private String poster;
-	
+
 	private int metascore;
-	
+
 	private int imdb_ratings;
-	
+
 	private long imdb_votings;
-	
+
 	private String imdb_id;
-	
+
 	private String type;
-	
-	
+
 	public String getId() {
 		return id;
 	}
@@ -79,11 +77,11 @@ public class Movie {
 		this.title = title;
 	}
 
-	public String getYear() {
+	public int getYear() {
 		return year;
 	}
 
-	public void setYear(String year) {
+	public void setYear(int year) {
 		this.year = year;
 	}
 
@@ -206,7 +204,7 @@ public class Movie {
 	public void setImdb_id(String imdb_id) {
 		this.imdb_id = imdb_id;
 	}
-	
+
 	public String getType() {
 		return type;
 	}
@@ -215,5 +213,13 @@ public class Movie {
 		this.type = type;
 	}
 
-		
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", title=" + title + ", year=" + year + ", rated=" + rated + ", released=" + released
+				+ ", genere=" + genere + ", director=" + director + ", writer=" + writer + ", actors=" + actors
+				+ ", plot=" + plot + ", language=" + language + ", country=" + country + ", awards=" + awards
+				+ ", poster=" + poster + ", metascore=" + metascore + ", imdb_ratings=" + imdb_ratings
+				+ ", imdb_votings=" + imdb_votings + ", imdb_id=" + imdb_id + ", type=" + type + "]";
+	}
+
 }

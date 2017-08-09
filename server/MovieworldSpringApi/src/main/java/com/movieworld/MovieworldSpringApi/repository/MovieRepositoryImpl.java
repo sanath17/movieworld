@@ -23,15 +23,13 @@ public class MovieRepositoryImpl implements MovieRepository {
 	}
 
 	@Override
-	public Movie findByTitle(Movie title) {
+	public Movie findByTitle(String title) {
 		TypedQuery<Movie> query = em.createNamedQuery("Movie.findByTitle", Movie.class);
 		query.setParameter("pTitle", title);
-		//List<Movie> movies = query.getResultList();
-		return query.getSingleResult();
-//		if (movies != null && movies.size() == 1) {
-//			return movies.get(0);
-//		}
-//		return null;
+		List<Movie> movies = query.getResultList();
+		if (movies != null && movies.size() == 1)
+			return movies.get(0);
+		return null;
 	}
 
 	@Override
@@ -53,9 +51,9 @@ public class MovieRepositoryImpl implements MovieRepository {
 	}
 
 	@Override
-	public Movie create(Movie title) {
-		em.persist(title);
-		return title;
+	public Movie create(Movie movie) {
+		em.persist(movie);
+		return movie;
 	}
 
 	@Override

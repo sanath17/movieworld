@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import com.movieworld.MovieworldSpringApi.entity.User;
 
 @Repository
-
 public class UserRepositoryImpl implements UserRepository {
 
 		

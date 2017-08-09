@@ -28,7 +28,7 @@ public class MovieController  {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, path= "{title}", produces=MediaType.APPLICATION_JSON_UTF8_VALUE )
-	public Movie findBytitle(@PathVariable("title") Movie title) {
+	public Movie findBytitle(@PathVariable("title") String title) {
 		return service.findByTitle(title);
 	}
     
@@ -58,7 +58,7 @@ public class MovieController  {
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, path= "{title}" )
-	public void delete(@PathVariable("title") Movie title) {
+	public void delete(@PathVariable("title") String title) {
 		 service.delete(title);
 	}
 		

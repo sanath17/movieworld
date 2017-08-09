@@ -27,7 +27,7 @@ public class UserReviewController {
 		return service.findAll();	
 	}
 	
-	@RequestMapping(method=RequestMethod.GET, path= "{User_Review}", produces=MediaType.APPLICATION_JSON_UTF8_VALUE )
+	@RequestMapping(method=RequestMethod.GET, path= "{id}", produces=MediaType.APPLICATION_JSON_UTF8_VALUE )
 	public UserReview findOne(@PathVariable("User_Review")  UserReview id, UserReview comments) {
 		return service.findOne(id,comments);
 	}
@@ -44,7 +44,7 @@ public class UserReviewController {
 		return service.update(id, comments);
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE, path= "{User_Review}" )
+	@RequestMapping(method=RequestMethod.DELETE, path= "{comments}" )
 	public void delete(@PathVariable("User_Review") UserReview comments) {
 		 service.delete(comments);
 	}

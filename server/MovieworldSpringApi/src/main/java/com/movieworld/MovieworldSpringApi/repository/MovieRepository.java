@@ -8,7 +8,7 @@ public interface MovieRepository {
 
 	public  List<Movie> findAll();
 	
-	public  Movie findByTitle(Movie title);
+	public  Movie findByTitle(String title);
 	
 	public Movie findByGenere(String genere);
 	
@@ -16,7 +16,7 @@ public interface MovieRepository {
 	
 	public Movie findByType(String type);
 	
-	public Movie create(Movie title);
+	public Movie create(Movie movie);
 	
 	public Movie update(Movie title);
 	

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.movieworld.MovieworldSpringApi.entity.UserReview;
@@ -11,6 +12,7 @@ import com.movieworld.MovieworldSpringApi.exception.ReviewNotFoundException;
 import com.movieworld.MovieworldSpringApi.repository.UserReviewRepository;
 
 @Service
+@EnableTransactionManagement
 public class UserReviewServiceImpl implements UserReviewService {
 
 	@Autowired

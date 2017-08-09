@@ -3,6 +3,8 @@ package com.movieworld.MovieworldSpringApi.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.movieworld.MovieworldSpringApi.entity.User;
@@ -10,6 +12,9 @@ import com.movieworld.MovieworldSpringApi.exception.UserAlreadyExistsException;
 import com.movieworld.MovieworldSpringApi.exception.UserNotFoundException;
 import com.movieworld.MovieworldSpringApi.repository.UserRepository;
 
+
+@Service
+@EnableTransactionManagement
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
