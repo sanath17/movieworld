@@ -31,6 +31,14 @@ public class MovieRepositoryImpl implements MovieRepository {
 			return movies.get(0);
 		return null;
 	}
+	public Movie findOne(String id) {
+		TypedQuery<Movie> query = em.createNamedQuery("Movie.findOne", Movie.class);
+		query.setParameter("pId", id);
+		List<Movie> movies = query.getResultList();
+		if (movies != null && movies.size() == 1)
+			return movies.get(0);
+		return null;
+	}
 
 	@Override
 	public Movie findByGenere(String genere) {

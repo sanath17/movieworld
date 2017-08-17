@@ -3,6 +3,7 @@ package com.movieworld.MovieworldSpringApi;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebIntializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+	
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {

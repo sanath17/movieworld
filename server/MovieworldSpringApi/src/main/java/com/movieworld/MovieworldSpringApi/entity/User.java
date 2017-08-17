@@ -3,6 +3,7 @@ package com.movieworld.MovieworldSpringApi.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -18,15 +19,36 @@ import org.hibernate.annotations.GenericGenerator;
 })
 public class User {
 	
-	@Id
 	@GenericGenerator(name = "customUUID", strategy = "uuid2")
 	@GeneratedValue(generator = "customUUID")
 	private String userId;
+	
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+
+	@Column(name="SSO_ID", unique=true, nullable=false)
+	private String ssoId;
 	
 	private String firstname;
 	
 	private String lastname;
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getSsoId() {
+		return ssoId;
+	}
+
+	public void setSsoId(String ssoId) {
+		this.ssoId = ssoId;
+	}
+
 	@Column(unique= true)
 	private String email;
 	

@@ -5,14 +5,15 @@ import java.util.List;
 import com.movieworld.MovieworldSpringApi.entity.User;
 
 public interface UserService {
-	
+
 	public List<User> findAll();
-	
-	public User findOne(User userId);
-	
-	public User create(User userId );
-	
-	public User update(User userId);
-	
-	public void delete(User userid);
+
+	public User findByEmail(String email);
+
+	public User create(User email);
+
+	public User update(User email);
+
+	public void delete(String email);
+
 }

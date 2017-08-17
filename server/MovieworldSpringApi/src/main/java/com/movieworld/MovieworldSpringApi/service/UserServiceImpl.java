@@ -13,6 +13,7 @@ import com.movieworld.MovieworldSpringApi.exception.UserNotFoundException;
 import com.movieworld.MovieworldSpringApi.repository.UserRepository;
 
 
+
 @Service
 @EnableTransactionManagement
 public class UserServiceImpl implements UserService {
@@ -26,10 +27,10 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public User findOne(User userId) {
-		User existing = repository.findOne(userId);
+	public User findByEmail(String email) {
+		User existing = repository.findByEmail(email);
 		if (existing == null) {
-			throw new UserNotFoundException("User with id:" + userId + " not found");
+			throw new UserNotFoundException("User with email:" + email + " not found");
 		}
 		return existing;
 	}
@@ -37,7 +38,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	@Transactional
 	public User create(User email) {
-		User existing = repository.findByEmail(email);
+		User existing = repository.findByEmail(email.getEmail());
 		if (existing != null) {
 			throw new UserAlreadyExistsException("Email is already in use: " + email);
 		}
@@ -47,22 +48,23 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	@Transactional
-	public User update(User userId) {
-		User existing = repository.findOne(userId);
+	public User update(User email) {
+		User existing = repository.findByEmail(email.getEmail());
 		if (existing == null) {
-			throw new UserNotFoundException("User with id:" + userId + " not found");
+			throw new UserNotFoundException("User with id:" + email.getEmail() + " not found");
 		}
-		return repository.update(userId);
+		return repository.update(email);
 	}
 
 	@Override
 	@Transactional
-	public void delete(User userId) {
-	User existing = repository.findOne(userId);
+	public void delete(String email) {
+	User existing = repository.findByEmail(email);
 		if (existing == null) {
-			throw new UserNotFoundException("User with id:" + userId + " not found");
+			throw new UserNotFoundException("User with id:" + email + " not found");
 		}
 		repository.delete(existing);
 	}
+	
 
 }

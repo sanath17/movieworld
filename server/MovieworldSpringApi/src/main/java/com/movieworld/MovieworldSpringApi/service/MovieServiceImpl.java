@@ -32,6 +32,14 @@ public class MovieServiceImpl implements MovieService {
 		}
 		return existing;
 	}
+	@Override
+	public Movie findOne(String id) {
+		Movie existing = repository.findOne(id);
+		if (existing == null) {
+			throw new MovieNotFoundException("Movie with " + id + "notfound");
+		}
+		return existing;
+	}
 
 	@Override
 	public Movie findByGenere(String genere) {
@@ -75,7 +83,7 @@ public class MovieServiceImpl implements MovieService {
 	public Movie update(Movie title) {
 		Movie existing = repository.findByTitle(title.getTitle());
 		if (existing == null) {
-			throw new MovieNotFoundException("Movie with " + title + "notfound");
+			throw new MovieNotFoundException("Movie with " + title.getTitle() + "notfound");
 		}
 		return repository.update(title);
 	}

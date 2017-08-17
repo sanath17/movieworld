@@ -24,7 +24,7 @@ public class UserRepositoryImpl implements UserRepository {
 		}
 		
 		@Override
-		public User findByEmail(User email) {
+		public User findByEmail(String email) {
 			TypedQuery<User> query = em.createNamedQuery("User.findByEmail", User.class);
 			query.setParameter("pEmail", email);
 			List<User> users = query.getResultList();
@@ -34,25 +34,21 @@ public class UserRepositoryImpl implements UserRepository {
 			return null;
 		}
 
+
 		@Override
-		public User findOne(User userId) {
-			return em.find(User.class, userId);
+		public User create(User email) {
+			em.persist(email);
+			return email;
 		}
 
 		@Override
-		public User create(User userId) {
-			em.persist(userId);
-			return userId;
+		public User update(User email) {
+			return em.merge(email);
 		}
 
 		@Override
-		public User update(User userId) {
-			return em.merge(userId);
-		}
-
-		@Override
-		public void delete(User userId) {
-			em.remove(userId);
+		public void delete(User email) {
+			em.remove(email);
 		}
 
 }

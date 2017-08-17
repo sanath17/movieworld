@@ -10,6 +10,8 @@ public interface MovieService {
 	
 	public  Movie findByTitle(String title);
 	
+	public  Movie findOne(String id);
+	
 	public Movie findByGenere(String genere);
 	
 	public Movie findByRatings(int imdb_ratings );

@@ -7,15 +7,13 @@ import com.movieworld.MovieworldSpringApi.entity.User;
 public interface UserRepository {
 
 	public List<User> findAll();
-
-	public User findOne(User userId);
 	
-	public User findByEmail(User email);
+	public User findByEmail(String email);
 
-	public User create(User userId);
+	public User create(User email);
 
-	public User update(User userId);
+	public User update(User email);
 
-	public void delete(User userid);
+	public void delete(User email);
 
 }
