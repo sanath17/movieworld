@@ -1,0 +1,29 @@
+<div class="container" ng-init="moviesVm.getMovies()">
+
+    <h2>Toprated Movies Based On IMDB_Ratings</h2>
+    <div class="filter">
+        <ul class="container">
+            <li class="searchbox"><h4>Search</h4><input type="text" class="form-control" ng-model="moviesVm.title" id="search" placeholder="Type rating you are looking for in between 1-10 "></li>
+        </ul>
+    </div>
+    <br>
+    <table class="table table-hover">
+        <thead>
+        <tr class="list">
+            <th ng-click="moviesVm.changeSort('title')">Title<script class="caret"></script></th>
+            <th ng-click="moviesVm.changeSort('imdb_ratings')">IMDB Ratings<script class="caret"></script></th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="movie in moviesVm.movies | filter:moviesVm.title | orderBy:moviesVm.sorter.by:moviesVm.sorter.reverse">
+            <td><a ng-href="#!/Movies/{{movie.id}}">{{movie.title}}</a></td>
+            <td>{{movie.imdb_ratings}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+</div>

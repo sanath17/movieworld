@@ -1,0 +1,38 @@
+<div class="container" ng-controller="LoginController as loginVm">
+    <div class="jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3">Welcome to Movieworld !!</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <form class="form-signin" ng-submit="loginVm.login()" novalidate>>
+            <h2 class="form-signin-heading">Please sign in</h2>
+
+            <label for="UserID" class="sr-only">userid</label>
+            <input type="text" id="UserID" class="form-control" placeholder="userid" ng-model="loginVm.username" required autofocus>
+            <div ng-messages="loginForm.userid.$error" class="error" ng-if="loginForm.userid.$dirty">
+                <p ng-message="required">userid could not be empty</p>
+                <p ng-message="email">userid is not valid</p>
+            </div>
+
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="loginVm.password" required>
+            <div ng-messages="loginForm.password.$error" class="error" ng-if="loginForm.password.$dirty">
+                <p ng-message="required">Password could not be empty</p>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+
+            <div id="loginbutton">
+            <button class="btn  btn-primary btn-block" type="submit"  ng-disabled="loginForm.$invalid">Sign in</button>
+            <a href="#!/signup" class="btn  btn-primary btn-block" >Sign up</a>
+            </div>
+        </form>
+    </div>
+    <!-- /container -->
+</div>

@@ -1,0 +1,83 @@
+body {
+    background: url('../images/background.jpg');
+    background-repeat: no-repeat;
+    background-position: initial;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: rgb(126, 126, 126);
+
+}
+
+img{
+    width: 400px;
+    height: 300px;
+    margin-top: 100px;
+    border-radius: 5px;
+    border-width:5px ;
+    border-style: groove ;
+}
+
+.jumbotron-fluid {
+    margin-top: 100px;
+    padding-left: 100px;
+}
+.main .display-3 {
+    font-size: 4.5rem;
+    font-weight: 600;
+    line-height: 1.1;
+}
+a:focus, a:hover {
+    color: deepskyblue;
+    text-decoration: underline;
+}
+
+.navbar-default {
+    background-color: black;
+    border-color: antiquewhite;
+}
+.navbar-default .navbar-nav > li > a {
+    color: deepskyblue;
+}
+
+.navbar-header {
+    float: inherit;
+    }
+.btn-default {
+    color: deepskyblue;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: whitesmoke;;
+    background-color: transparent;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: border-box;
+    border: 1px solid rgb(0, 147, 245);
+    border-radius: 0.25rem;
+    -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 1rem;
+    font-weight: bolder;
+    line-height: inherit;
+    white-space: nowrap;
+    font-size: 25px;
+}

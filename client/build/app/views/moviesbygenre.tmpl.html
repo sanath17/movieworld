@@ -1,0 +1,31 @@
+<div class="container" ng-init="moviesVm.getMovies()">
+
+    <h2>Movies by genre</h2>
+    <div class="filter">
+        <ul class="container">
+            <li class="searchbox"><h4>Search</h4><input type="text" class="form-control" ng-model="moviesVm.genere" id="search" placeholder="Type you favourite Genre"></li>
+        </ul>
+    </div>
+    <br>
+    <table class="table table-hover">
+        <thead>
+        <tr class="list">
+            <th ng-click="moviesVm.changeSort('title')">Title<script class="caret"></script></th>
+            <th ng-click="moviesVm.changeSort('genere')">Genre<script class="caret"></script></th>
+            <th ng-click="moviesVm.changeSort('year')">Year<script class="caret"></script></th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="movie in moviesVm.movies | filter:moviesVm.genere | orderBy:moviesVm.sorter.by:moviesVm.sorter.reverse">
+            <td><a ng-href="#!/Movies/{{movie.id}}">{{movie.title}}</a></td>
+            <td>{{movie.genere}}</td>
+            <td>{{movie.year}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+</div>

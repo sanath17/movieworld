@@ -1,0 +1,36 @@
+form-signup-heading{
+
+    position: inherit;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 50%;
+    margin-left: 0px;
+    margin-top: 200px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+
+}
+
+.input-group {
+    position: inherit;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 50%;
+    margin-left: 0px;
+    margin-top: 10px;
+}
+.btn-primary
+{
+    position: inherit;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: table-cell;
+    width: 50%;
+    margin-left: 0px;
+    margin-top: 10px;
+}

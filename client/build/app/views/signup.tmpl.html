@@ -1,0 +1,46 @@
+
+<div class="container">
+
+    <h1 class="form-signup-heading">Create Account</h1>
+    <form name="regForm" ng-controller="SignupController as sign" ng-submit="form.$setPristine(); sign.create();" novalidate>
+        <div class="input-group">
+            <input id="username" type="text" class="form-control" ng-model="sign.newuser.ssoId"  name="username" placeholder="username" required minlength="3">
+            <div ng-messages="form.username.$error" ng-if="form.username.$dirty">
+                <p ng-message="required" class="error">user Name is required</p>
+                <p ng-message="minlength" class="error">user Name has to be at least 3 chars</p>
+            </div>
+        </div>
+    <div class="input-group">
+        <input id="firstname" type="text" class="form-control" ng-model="sign.newuser.firstname"  name="firstname" placeholder="firstname" required minlength="3">
+        <div ng-messages="form.firstname.$error" ng-if="form.firstname.$dirty">
+            <p ng-message="required" class="error">First Name is required</p>
+            <p ng-message="minlength" class="error">First Name has to be at least 3 chars</p>
+        </div>
+    </div>
+    <div class="input-group">
+        <input id="lastname" type="text" class="form-control" ng-model="sign.newuser.lastname" name="lastname" placeholder="lastname" required minlength="3" >
+        <div ng-messages="form.lastname.$error" ng-if="form.lastname.$dirty">
+            <p ng-message="required" class="error">Last Name is required</p>
+            <p ng-message="minlength" class="error">Last Name has to be at least 3 chars</p>
+        </div>
+    </div>
+    <div class="input-group">
+        <input id="email" type="text" class="form-control" ng-model="sign.newuser.email" name="email" placeholder="Email" required>
+        <div ng-messages="form.email.$error" ng-if="form.email.$dirty">
+            <p ng-message="required" class="error">Email is required</p>
+            <p ng-message="email" class="error">Email is invalid</p>
+        </div>
+    </div>
+    <div class="input-group">
+        <input id="password" type="password" class="form-control" ng-model="sign.newuser.password" name="password" placeholder="Password" required minlength="8">
+        <div ng-messages="form.password.$error" ng-if="form.password.$dirty">
+            <p ng-message="required" class="error">Password is required</p>
+            <p ng-message="minlength" class="error">Password has to be at least 8 chars</p>
+        </div>
+    </div>
+
+    <button class="btn  btn-primary btn-block" type="submit" ng-disabled="regForm.$invalid">Submit</button>
+    </form>
+
+</div>
+
