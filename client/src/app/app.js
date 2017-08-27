@@ -29,26 +29,11 @@
                 controller: 'MovieController',
                 controllerAs: 'moviesVm'
             })
-            // .when('/series', {
-            //     templateUrl: 'app/views/series.tmpl.html',
-            //     controller: 'MovieController',
-            //     controllerAs: 'moviesVm'
-            // })
             .when('/Movies/:id', {
                 templateUrl: 'app/views/movie-detail.tmpl.html',
                 controller: 'MovieController',
                 controllerAs: 'moviesVm'
             })
-            // .when('/series/:id', {
-            //     templateUrl: 'app/views/series-detail.tmpl.html',
-            //     controller: 'MovieController',
-            //     controllerAs: 'moviesVm'
-            // })
-            // .when('/topMovies', {
-            //     templateUrl: 'app/views/top-movies.tmpl.html',
-            //     controller: 'MovieController',
-            //     controllerAs: 'moviesVm'
-            // })
             .when('/genere', {
                 templateUrl: 'app/views/moviesbygenre.tmpl.html',
                 controller: 'MovieController',
@@ -59,11 +44,6 @@
                 controller: 'MovieController',
                 controllerAs: 'moviesVm'
             })
-            // .when('/topSeries', {
-            //     templateUrl: 'app/views/top-series.tmpl.html',
-            //     controller: 'MovieController',
-            //     controllerAs: 'moviesVm'
-            // })
             .when('/imdbRating', {
                 templateUrl: 'app/views/moviesbyrating.tmpl.html',
                 controller: 'MovieController',

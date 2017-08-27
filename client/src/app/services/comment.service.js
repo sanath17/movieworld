@@ -12,7 +12,7 @@
         self.getAllComments = getAllComments;
         self.createComment = createComment;
         function getAllComments(id) {
-            return $http.get(CONFIG.API_HOST+ '/review/findById/' + id)
+            return $http.get(CONFIG.API_HOST+ '/userreview/findById/' + id)
                 .then(function (response) {
                     console.log("getting all comments");
                     return response.data;
@@ -22,7 +22,7 @@
         }
 
         function createComment(review) {
-            return $http.post(CONFIG.API_HOST+ '/review/', review)
+            return $http.post(CONFIG.API_HOST+ '/userreview/', comment)
                     .then(function (response) {
                         console.log("creating a commment");
                         return response.data;

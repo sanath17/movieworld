@@ -19,7 +19,7 @@ var Commments = [];
             Comments.push(Vm.my.comment);
             sessionStorage.setItem("commentdata", JSON.stringify(Comments));
             console.log(angular.toJson(Vm.my));
-            $http.put('http://localhost:8080/spring-rest/api/movies/'+id, angular.toJson(Vm.my))
+            $http.put('http://localhost:8080/movieworldSpringApi/api/userreview/'+id, angular.toJson(Vm.my))
                 .success(function (response) {
                     console.log(response);
                 });
@@ -47,7 +47,7 @@ var Commments = [];
             Comments.push(Vm.my.comment);
             sessionStorage.setItem("commentdata", JSON.stringify(Comments));
             console.log(angular.toJson(Vm.my));
-            $http.put('http://localhost:8080/spring-rest/api/movies/'+id, angular.toJson(Vm.my))
+            $http.put('http://localhost:8080/movieworldSpringApi/api/userreview/'+id, angular.toJson(Vm.my))
                 .success(function (response) {
                     console.log(response);
                 });

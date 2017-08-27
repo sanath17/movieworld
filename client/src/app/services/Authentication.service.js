@@ -11,7 +11,6 @@
             var self = this;
 
             self.Login = Login;
-            //self.ClearCredentials = ClearCredentials;
 
             function Login(username, password) {
                 return $http.get('http://localhost:8080/MovieworldSpringApi/api/Movie', {
@@ -22,15 +21,13 @@
             }
 
             function successFn(response) {
-                return response.data; //RESOLVE
+                return response.data; 
             }
 
             function errorFn(response) {
-                return $q.reject(error.status); //REJECT
+                return $q.reject(error.status); 
             }
-            // function ClearCredentials() {
-            //     $http.defaults.headers.common.Authorization = 'Basic';
-            // }
+        
         }
 
 
